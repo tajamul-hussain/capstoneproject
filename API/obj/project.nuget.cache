@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "KOidozs01E5esmmYGH7v59I07F02fZ1riaeY0krabSSSg/F/4V8IPiIbgden0mt1m5t9CxuSZ0tKqbyVcJ0ifg==",
+  "dgSpecHash": "kXwRgsRoKxikkoAM8uYzuYpswBg44ywRc2pd+bmwW53Mnrf1Jfu71ZEqN6b0Fr9eBCVX70c0qzxRHqg4gObXaQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\tajamulhussain\\Desktop\\Caps\\api\\API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tajamulhussain\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\tajamulhussain\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\tajamulhussain\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\tajamulhussain\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.11\\microsoft.aspnetcore.authentication.jwtbearer.5.0.11.nupkg.sha512",
     "C:\\Users\\tajamulhussain\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\5.0.1\\microsoft.aspnetcore.authentication.openidconnect.5.0.1.nupkg.sha512",
@@ -47,6 +49,7 @@
     "C:\\Users\\tajamulhussain\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
     "C:\\Users\\tajamulhussain\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.13.1\\system.identitymodel.tokens.jwt.6.13.1.nupkg.sha512",
     "C:\\Users\\tajamulhussain\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\tajamulhussain\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\tajamulhussain\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": []
