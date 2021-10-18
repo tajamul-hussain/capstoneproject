@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace API.DTOS
 {
     public class PostDto
@@ -5,5 +7,6 @@ namespace API.DTOS
         public int Id { get; set; }
         public string Url { get; set; }
         public bool IsMain { get; set; }
+        public ICollection<CommentDto> Comments { get; set; }
     }
 }

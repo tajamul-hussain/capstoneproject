@@ -12,8 +12,10 @@ namespace API.Helpers
     {
         public AutoMapperProfile()
         {
-            CreateMap<AppUser,MemberDto>();
+            CreateMap<AppUser,MemberDto>().
+            ForMember(dest=>dest.PostUrl,opt=>opt.MapFrom(src=>src.Posts.FirstOrDefault(x=>x.IsMain).Url));
             CreateMap<Post,PostDto>();
+            CreateMap<Comment,CommentDto>();
         }
     }
 }

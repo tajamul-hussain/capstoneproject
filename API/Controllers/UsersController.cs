@@ -24,16 +24,16 @@ namespace API.Controllers
             _userRepository = userRepository;
 
         }
-        [AllowAnonymous]
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
         {
             var users = await _userRepository.GetUsersAsync();
             var usersToReturn=_mapper.Map<IEnumerable<MemberDto>>(users);
-            return Ok(users);
+            return Ok(usersToReturn);
 
         }
-        [Authorize]
+      
         [HttpGet]
         [Route("{username}")]
         public async Task<ActionResult<MemberDto>> GetUser(string username)

@@ -9,6 +9,7 @@ using API.DTOs;
 using API.DTOS;
 using API.Entities;
 using API.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -82,4 +83,22 @@ namespace API.Controllers
             return  await _context.Users.AnyAsync(x=>x.Email==email.ToLower());
         }
     }
+
+
+    //reset starts from here
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

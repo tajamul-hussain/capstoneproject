@@ -14,5 +14,6 @@ namespace API.Entities
         public ICollection<Post>  Posts { get; set; }
         public byte[]  PasswordHash { get; set; }
         public byte [] PasswordSalt { get; set; }
+        public string Gender { get; set; }
     }
 }

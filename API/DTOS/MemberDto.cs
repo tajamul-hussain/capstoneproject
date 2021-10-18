@@ -12,20 +12,10 @@ namespace API.DTOS
          public int Id { get; set; }
         public string Email { get; set; }
         public string Username { get; set; }
+        public string PostUrl { get; set; }
        
         public DateTime Dob { get; set; }
-        public ICollection<PostDto>  Posts { get; set; }
-        
-
-
-
-
-
-
-
-
-
-
+        public ICollection<PostDto> Posts { get; set; }    
         
     }
 }
