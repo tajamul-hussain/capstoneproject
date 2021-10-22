@@ -15,5 +15,8 @@ namespace API.Entities
         public byte[]  PasswordHash { get; set; }
         public byte [] PasswordSalt { get; set; }
         public string Gender { get; set; }
+        public ICollection<UserLike> LikedByUsers { get; set; }
+        public ICollection<UserLike> LikedUsers { get; set; }
+
     }
 }

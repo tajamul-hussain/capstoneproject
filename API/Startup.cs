@@ -37,6 +37,15 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+           
+
+
+
+            services.AddScoped<ILikesRepository,LikesRepository>();
+
+            services.Configure<CloudinarySettings>(_config.GetSection("CloudinarySettings"));
+            services.AddScoped<IPhotoService,PhotoService>();
             
             services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
             services.AddScoped<IUserRepository,UserRepository>();
@@ -78,11 +87,16 @@ namespace API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
 
+            app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseCors(x=>x.AllowAnyHeader().WithOrigins("http://localhost:4200"));
+            // app.UseCors(x=>x.AllowAnyHeader().WithOrigins("http://localhost:4200"));
             app.UseAuthentication();
 
             app.UseAuthorization();

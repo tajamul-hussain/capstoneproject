@@ -9,6 +9,8 @@ namespace API.DTOS
     {
         public int Id { get; set; }
         public string CommentDetails { get; set; }
+        public int PostId { get; set; }
+        public int AppUserId { get; set; }
         
     }
 }

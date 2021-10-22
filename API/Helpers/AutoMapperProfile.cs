@@ -16,6 +16,7 @@ namespace API.Helpers
             ForMember(dest=>dest.PostUrl,opt=>opt.MapFrom(src=>src.Posts.FirstOrDefault(x=>x.IsMain).Url));
             CreateMap<Post,PostDto>();
             CreateMap<Comment,CommentDto>();
+           
         }
     }
 }

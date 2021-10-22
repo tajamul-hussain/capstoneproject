@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
+    
     public class AccountController : BaseApiController
     {
         private readonly DataContext _context;
@@ -67,7 +68,9 @@ namespace API.Controllers
             return new UserDto{
                 Email=user.Email,
                 UserName=user.UserName,
-                Token=_tokenService.CreateToken(user)
+                Id=user.Id,
+                Token=_tokenService.CreateToken(user),
+                
             };
 
         }

@@ -14,10 +14,10 @@ namespace API.Entities
         public bool IsMain { get; set; }
         
         public int Likes { get; set; }=0;
-        public int PublicId { get; set; }
+        public string PublicId { get; set; }
         public AppUser AppUser { get; set; }
         public int AppUserId { get; set; }
-        public ICollection<Comment>  Posts { get; set; }
+        public ICollection<Comment>  Comments { get; set; }
         
     }
 }
