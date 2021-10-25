@@ -20,10 +20,12 @@ namespace API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IPhotoService _photoService;
+        private readonly DataContext _context;
 
         private readonly IUserRepository _userRepository;
-        public UsersController(IUserRepository userRepository, IMapper mapper, IPhotoService photoService)
+        public UsersController(IUserRepository userRepository, IMapper mapper, IPhotoService photoService,DataContext context)
         {
+            _context = context;
             _photoService = photoService;
             _mapper = mapper;
             _userRepository = userRepository;
@@ -43,6 +45,7 @@ namespace API.Controllers
             return Ok(usersToReturn);
 
         }
+        [Authorize]
 
         [HttpGet]
         [Route("{username}")]
@@ -52,6 +55,19 @@ namespace API.Controllers
             var userToReturn = _mapper.Map<MemberDto>(user);
             return Ok(userToReturn);
         }
+        //  var loggedIn= HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        //  [Route("{email}")]
+        // public async Task<ActionResult<MemberDto>> GetUser(string email)
+        // {
+           
+            
+        //     var user = await _userRepository.GetUserByUseremailAsync(email);
+        //     var userToReturn = _mapper.Map<MemberDto>(user);
+        //     return Ok(userToReturn);
+        // }
+
+
         [HttpGet]
         [Route("id/{id}")]
         public async Task<ActionResult<MemberDto>> GetUser(int id)
@@ -104,6 +120,52 @@ namespace API.Controllers
             if(await _userRepository.SaveAllAsync()) return Ok();
             return BadRequest("Failed to delete");
         }
+
+        // [Authorize]
+        // [HttpPost]
+        // [Route("postId")]
+        // public async Task<ActionResult> AddComment(int postId){
+        //    var loggedInUserEmail= HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //    var user=_userRepository.GetUserByUseremailAsync(loggedInUserEmail);
+           
+            
+
+        // }
+        [Authorize]
+         [HttpPost]
+        // [Route("{postId}/{commentDetails}")]
+        public async Task<ActionResult> AddCommentAsync(int postId,string commentDetails)
+        {
+            var loggedInUserEmail= HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var loggedInUser= await _userRepository.GetUserByUseremailAsync(loggedInUserEmail);
+            var comment=new Comment(){
+                PostId=postId,
+                CommentDetails=commentDetails,
+                AppUserId=loggedInUser.Id
+                };
+                _context.Comments.Add(comment);
+                 await _context.SaveChangesAsync();
+            
+            return Ok();
+
+
+            
+        }
+        [Authorize]
+        [HttpGet]
+        [Route("likes")]
+         public async Task<ActionResult> AddLikeAsync(int postId){
+           var post= await  _context.Posts.FindAsync(postId);
+           post.Likes=post.Likes+1;
+           await _context.SaveChangesAsync();
+           return Ok();
+
+             
+         }
+
+
+
+        
 
     }
 }

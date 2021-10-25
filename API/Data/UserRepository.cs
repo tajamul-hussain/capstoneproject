@@ -45,6 +45,14 @@ namespace API.Data
 
         }
 
+        public async Task<AppUser> GetUserByUseremailAsync(string email)
+        {
+            return await _context.Users.
+            Include(user => user.Posts).ThenInclude(p=>p.Comments)
+            .SingleOrDefaultAsync(x => x.Email == email);
+            
+        }
+
         public async Task<AppUser> GetUserByUsernameAsync(string username)
         {
             return await _context.Users.
