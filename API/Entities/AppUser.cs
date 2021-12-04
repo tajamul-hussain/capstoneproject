@@ -17,6 +17,10 @@ namespace API.Entities
         public string Gender { get; set; }
         public ICollection<UserLike> LikedByUsers { get; set; }
         public ICollection<UserLike> LikedUsers { get; set; }
+        public string Buname { get; set; }
+        public string Role { get; set; }
+        public string Sroleone { get; set; }
+        public string Sroletwo { get; set; }
 
     }
 }

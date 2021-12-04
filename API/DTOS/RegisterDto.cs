@@ -16,5 +16,11 @@ namespace API.DTOS
         public string Username { get; set; }
         [Required]
         public DateTime Dob { get; set; }
+       
+        public string Buname { get; set; }
+        public string Sroleone { get; set; }
+        public string Sroletwo { get; set; }
+       
+        public string Role { get; set; }
     }
 }

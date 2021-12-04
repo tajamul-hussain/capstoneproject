@@ -13,6 +13,10 @@ namespace API.DTOS
         public string Email { get; set; }
         public string Username { get; set; }
         public string PostUrl { get; set; }
+        public string Role { get; set; }
+        public string Sroleone { get; set; }
+        public string  Sroletwo { get; set; }
+        public string Buname { get; set; }
        
         public DateTime Dob { get; set; }
         public ICollection<PostDto> Posts { get; set; }    

@@ -36,8 +36,12 @@ namespace API.Controllers
             using var hmac=new HMACSHA512();
             var user= new AppUser
             {
+                Buname=registerDto.Buname,
+                Role=registerDto.Role,
                 UserName=registerDto.Username,
                 Dob=registerDto.Dob,
+                Sroleone=registerDto.Sroleone,
+                Sroletwo=registerDto.Sroletwo,
                 Email=registerDto.Email.ToLower(),
                 PasswordHash=hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
                 PasswordSalt=hmac.Key
@@ -47,6 +51,10 @@ namespace API.Controllers
             return new UserDto{
                 UserName=user.UserName,
                 Email=user.Email,
+                Role=user.Role,
+                Sroleone=user.Sroleone,
+                Sroletwo=user.Sroletwo,
+                Buname=user.Buname,
                 Token=_tokenService.CreateToken(user)
             };
             
@@ -66,9 +74,21 @@ namespace API.Controllers
                 }
             }
             return new UserDto{
+                // Email=user.Email,
+                // UserName=user.UserName,
+                // Id=user.Id,
+
+                 UserName=user.UserName,
                 Email=user.Email,
-                UserName=user.UserName,
-                Id=user.Id,
+                Role=user.Role,
+                Sroleone=user.Sroleone,
+                Sroletwo=user.Sroletwo,
+                Buname=user.Buname,
+
+
+
+
+
                 Token=_tokenService.CreateToken(user),
                 
             };
